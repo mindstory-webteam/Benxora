@@ -30,9 +30,58 @@
           <a href="#contact">Contact</a>
         </div>
         <a class="btn btn-primary" href="#contact">Book Consultation</a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </div>
   </header>
+
+  <!-- ===== DRAWER OVERLAY ===== -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ===== DRAWER ===== -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer-header">
+      <img src="https://img1.wsimg.com/isteam/ip/5c880992-3157-46a7-8554-b1f9b2751e6f/633925916_4353523071547316_7229703104185148029.jpg/:/rs=h:113,cg:true,m/qt=q:95" alt="Benxora" />
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-section-label">Navigation</div>
+      <div class="drawer-links">
+        <a href="#who" class="drawer-nav-link">
+          Who We Are
+        </a>
+        <a href="#focus" class="drawer-nav-link">
+          Our Focus
+        </a>
+        <a href="#services" class="drawer-nav-link">
+          Services
+        </a>
+        <a href="#journey" class="drawer-nav-link">
+          Journey
+        </a>
+        <a href="#colleges" class="drawer-nav-link">
+          Colleges
+        </a>
+        <a href="#contact" class="drawer-nav-link">
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <a class="btn btn-primary" href="#contact">Book Free Consultation →</a>
+      <div class="contact-mini">
+        Questions? <a href="mailto:contact@benxora.in">contact@benxora.in</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== HERO ===== -->
   <div class="hero" id="top">
@@ -110,22 +159,12 @@
           <p>
             To provide honest, structured, and responsible education guidance while ensuring students and parents feel supported throughout the journey.
           </p>
-          <!-- <ul class="bullets">
-            <li><span class="check">✓</span>Exclusively serving Kerala students and families</li>
-            <li><span class="check">✓</span>Honest, transparent, and structured guidance</li>
-            <li><span class="check">✓</span>Support continues well after admission day</li>
-            <li><span class="check">✓</span>On-ground local team in Bangalore</li>
-          </ul> -->
         </div>
         <div class="card">
           <h3>Our Promise</h3>
           <p>
             To become a trusted education consultancy brand known for integrity and dependable student support in Bangalore and beyond.
           </p>
-          <!-- <div class="note">
-            <b>Note on accommodation services:</b> We provide verified accommodation guidance on an advisory basis only.
-            We do not book hostels, handle rental payments, or take responsibility for rental agreements.
-          </div> -->
         </div>
       </div>
     </div>
@@ -276,31 +315,26 @@
           <span class="college-num">#1</span>
           <h4>College Name</h4>
           <p>Bangalore · Short one-line highlight about this institution.</p>
-          
         </div>
         <div class="college">
           <span class="college-num">#2</span>
           <h4>College Name</h4>
           <p>Mangalore · Short one-line highlight about this institution.</p>
-          
         </div>
         <div class="college">
           <span class="college-num">#3</span>
           <h4>College Name</h4>
           <p>Tamil Nadu · Short one-line highlight about this institution.</p>
-          
         </div>
         <div class="college">
           <span class="college-num">#4</span>
           <h4>College Name</h4>
           <p>Andhra Pradesh · Short one-line highlight about this institution.</p>
-          
         </div>
         <div class="college">
           <span class="college-num">#5</span>
           <h4>College Name</h4>
           <p>Bangalore · Short one-line highlight about this institution.</p>
-          
         </div>
       </div>
     </div>
@@ -460,6 +494,39 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== DRAWER LOGIC =====
+    function openDrawer() {
+      document.getElementById('drawer').classList.add('open');
+      document.getElementById('drawerOverlay').classList.add('open');
+      document.getElementById('hamburgerBtn').classList.add('open');
+      document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
+      document.body.classList.add('drawer-open');
+    }
+
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      document.getElementById('drawerOverlay').classList.remove('open');
+      document.getElementById('hamburgerBtn').classList.remove('open');
+      document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('drawer-open');
+    }
+
+    function toggleDrawer() {
+      document.getElementById('drawer').classList.contains('open') ? closeDrawer() : openDrawer();
+    }
+
+    document.getElementById('hamburgerBtn').addEventListener('click', toggleDrawer);
+    document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+    document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
+
+    document.querySelectorAll('.drawer-nav-link').forEach(function(link) {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
   </script>
 </body>
 </html>
