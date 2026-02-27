@@ -1,25 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // =====================================================
-  // SMOOTH SCROLL — no #hash in the URL
-  // Handles both header menu links AND drawer links
-  // =====================================================
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href^="#"]');
     if (!link) return;
 
-    var targetId = link.getAttribute('href').slice(1); // strip the #
+    var targetId = link.getAttribute('href').slice(1); 
     if (!targetId) return;
 
     var target = document.getElementById(targetId);
     if (!target) return;
 
-    e.preventDefault(); // ← this stops the browser adding #id to the URL
+    e.preventDefault(); 
 
-    // Close drawer first (safe to call even when drawer is closed)
     closeDrawer();
 
-    // Wait a tick so body overflow:hidden is removed before we scroll
     setTimeout(function () {
       var headerHeight = document.querySelector('.header')
         ? document.querySelector('.header').offsetHeight
@@ -30,9 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 10);
   });
 
-  // =====================================================
-  // DRAWER LOGIC
-  // =====================================================
+
   function openDrawer() {
     document.getElementById('drawer').classList.add('open');
     document.getElementById('drawerOverlay').classList.add('open');
@@ -63,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closeDrawer();
   });
 
-  // Year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
