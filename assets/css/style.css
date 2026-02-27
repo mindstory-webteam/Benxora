@@ -769,7 +769,9 @@
       box-shadow: 0 14px 38px rgba(37,211,102,.55);
     }
     .wa-float svg { width: 28px; height: 28px; fill: #fff; }
-
+    .drawer{
+      display: none;
+    }
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .colleges { grid-template-columns: repeat(3, 1fr); }
@@ -792,6 +794,9 @@
       .menu { display: none; }
       .nav > .btn { display: none; } /* Hide header CTA btn on mobile */
       .hamburger { display: flex; }
+      .drawer{
+        display: block !important;
+      }
     }
     @media (max-width: 640px) {
       h1 { font-size: 32px; }
