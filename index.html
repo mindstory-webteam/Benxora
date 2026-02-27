@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="assets/js/main.js"></script>
 </head>
 <body>
 
@@ -491,42 +492,5 @@
       <path d="M19.11 17.31c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.21-.6.07-.28-.14-1.16-.43-2.2-1.36-.81-.72-1.36-1.62-1.52-1.9-.16-.28-.02-.43.12-.56.12-.12.28-.32.41-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.99 2.67 1.13 2.85.14.18 1.95 2.98 4.73 4.17.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32zM16.02 2.67c-7.2 0-13.05 5.85-13.05 13.05 0 2.3.6 4.55 1.75 6.53L3 29.33l7.26-1.9c1.91 1.04 4.05 1.58 6.22 1.58 7.2 0 13.05-5.85 13.05-13.05S23.22 2.67 16.02 2.67zm0 23.18c-2.02 0-3.99-.54-5.69-1.57l-.41-.24-4.31 1.13 1.15-4.2-.27-.43a10.92 10.92 0 0 1-1.7-5.89c0-6.03 4.9-10.93 10.93-10.93s10.93 4.9 10.93 10.93-4.9 10.93-10.93 10.93z"/>
     </svg>
   </a>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // ===== DRAWER LOGIC =====
-    function openDrawer() {
-      document.getElementById('drawer').classList.add('open');
-      document.getElementById('drawerOverlay').classList.add('open');
-      document.getElementById('hamburgerBtn').classList.add('open');
-      document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'true');
-      document.body.classList.add('drawer-open');
-    }
-
-    function closeDrawer() {
-      document.getElementById('drawer').classList.remove('open');
-      document.getElementById('drawerOverlay').classList.remove('open');
-      document.getElementById('hamburgerBtn').classList.remove('open');
-      document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('drawer-open');
-    }
-
-    function toggleDrawer() {
-      document.getElementById('drawer').classList.contains('open') ? closeDrawer() : openDrawer();
-    }
-
-    document.getElementById('hamburgerBtn').addEventListener('click', toggleDrawer);
-    document.getElementById('drawerClose').addEventListener('click', closeDrawer);
-    document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
-
-    document.querySelectorAll('.drawer-nav-link').forEach(function(link) {
-      link.addEventListener('click', closeDrawer);
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeDrawer();
-    });
-  </script>
 </body>
 </html>
