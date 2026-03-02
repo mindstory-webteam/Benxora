@@ -60,10 +60,10 @@ if ($errorMSG == "") {
             <tr>
                 <td align='center'>
                     
-                    <table width='600' cellpadding='0' cellspacing='0' style='background:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,0.08);'>
+                    <table width='600' cellpadding='0' cellspacing='0' style='background:#ffffff; border-radius:10px; overflow:hidden;'>
 
                         <tr>
-                            <td style='background:#0E52A0; padding:20px; text-align:center; color:#ffffff; font-size:22px; font-weight:bold;'>
+                            <td style='background:linear-gradient(90deg, #007272 0%, #005e7a 50%, #091e3a 100%); padding:20px; text-align:center; color:#ffffff; font-size:22px; font-weight:bold;'>
                                 New Course Enquiry
                             </td>
                         </tr>
