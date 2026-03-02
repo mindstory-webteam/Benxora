@@ -553,6 +553,16 @@
                 >
                   Send Enquiry →
                 </button>
+                <div
+                  id="formAlert"
+                  style="
+                    margin-top: 12px;
+                    display: none;
+                    padding: 12px 14px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                  "
+                ></div>
               </div>
             </form>
           </div>
@@ -701,5 +711,60 @@
         />
       </svg>
     </a>
+
+    <script>
+      const form = document.getElementById("enquiryForm");
+      const alertBox = document.getElementById("formAlert");
+
+      function showAlert(type, msg) {
+        alertBox.style.display = "block";
+        alertBox.textContent = msg;
+
+        if (type === "success") {
+          alertBox.style.background = "#ecfdf5";
+          alertBox.style.border = "1px solid #10b981";
+          alertBox.style.color = "#065f46";
+        } else {
+          alertBox.style.background = "#fef2f2";
+          alertBox.style.border = "1px solid #ef4444";
+          alertBox.style.color = "#991b1b";
+        }
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Optional: disable button while sending
+        const btn = form.querySelector('button[type="submit"]');
+        const oldText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+
+        alertBox.style.display = "none";
+
+        try {
+          const formData = new FormData(form);
+
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await res.json();
+
+          if (data.status === "success") {
+            showAlert("success", data.message);
+            form.reset();
+          } else {
+            showAlert("error", data.message || "Something went wrong.");
+          }
+        } catch (err) {
+          showAlert("error", "Network error. Please try again.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldText;
+        }
+      });
+    </script>
   </body>
 </html>
