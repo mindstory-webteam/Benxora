@@ -34,7 +34,7 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "janavalsan@mindstory.in";
+$EmailTo = "";
 $subject = "New Course Enquiry from Website";
 
 // CUSTOM HTML EMAIL TEMPLATE
