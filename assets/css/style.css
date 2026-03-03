@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -124,7 +124,7 @@ img {
   gap: 6px;
   border-radius: 999px;
   padding: 11px 22px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 16px;
   border: none;
@@ -827,7 +827,7 @@ select {
   border: 1.5px solid var(--border);
   background: #fff;
   outline: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   color: var(--text);
   transition: .2s border-color, .2s box-shadow;
@@ -1252,7 +1252,7 @@ footer {
 }
 
 .preloader-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .12em;
@@ -1466,7 +1466,7 @@ body.modal-open {
   position: relative;
   z-index: 1;
   color: #fff;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .02em;
