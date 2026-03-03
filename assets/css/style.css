@@ -54,6 +54,7 @@ img {
   height: 25px;
   width: 25px;
 }
+
 .user-tick-icon {
   height: 42px;
   width: 42px;
@@ -1024,33 +1025,42 @@ footer {
   border: 1px solid rgba(0, 120, 120, .20);
 }
 
-/* ===== WHATSAPP ===== */
-.wa-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 999;
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  background: #25D366;
+/* ===== SOCIAL Floating ===== */
+.social-float {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 28px rgba(37, 211, 102, .45);
-  transition: .2s transform, .2s box-shadow;
+  flex-direction: column;
+  gap: 10px;
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
 }
 
-.wa-float:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 14px 38px rgba(37, 211, 102, .55);
+.soacial-icon {
+  height: 45px;
+  width: 45px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 4px;
 }
 
-.wa-float svg {
-  width: 28px;
-  height: 28px;
-  fill: #fff;
+.soacial-icon-img {
+  height: auto;
+  width: auto;
 }
+
+.facebook-icon {
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.linkedin-icon-main {
+  padding: 2px;
+}
+
 
 .drawer {
   display: none;
