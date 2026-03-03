@@ -50,6 +50,15 @@ img {
   display: block;
 }
 
+.icon-img {
+  height: 25px;
+  width: 25px;
+}
+.user-tick-icon {
+  height: 42px;
+  width: 42px;
+}
+
 .container {
   max-width: 1160px;
   margin: 0 auto;
@@ -648,7 +657,7 @@ h2 {
   border-radius: var(--radius-sm);
   padding: 14px 16px;
   color: #6a4a10;
-font-size: 16px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -693,7 +702,7 @@ font-size: 16px;
   font-weight: 800;
   font-size: 16px;
   flex: 0 0 38px;
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
 }
 
 .step-body b {
@@ -706,7 +715,7 @@ font-size: 16px;
 
 .step-body span {
   color: var(--muted);
-font-size: 16px;
+  font-size: 16px;
 }
 
 /* ===== COLLEGES ===== */
@@ -866,7 +875,7 @@ textarea {
 .info-item b {
   display: block;
   color: var(--navy);
-font-size: 16px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 2px;
 }
@@ -960,7 +969,7 @@ footer {
 
 .footer-brand p {
   color: rgba(255, 255, 255, .50);
-font-size: 16px;
+  font-size: 16px;
   line-height: 1.7;
   margin-top: 10px;
 }
