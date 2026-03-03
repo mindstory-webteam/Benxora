@@ -34,8 +34,8 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "";
-$subject = "New Course Enquiry from Website";
+$EmailTo = "contact@benxora.in";
+$subject = "New Contact Enquiry from Website";
 
 // CUSTOM HTML EMAIL TEMPLATE
 $Body = "
@@ -46,7 +46,7 @@ $Body = "
       <table width='600' cellpadding='0' cellspacing='0' style='background:#ffffff; border-radius:10px; overflow:hidden;'>
         <tr>
           <td style='background:linear-gradient(90deg, #007272 0%, #005e7a 50%, #091e3a 100%); padding:20px; text-align:center; color:#ffffff; font-size:22px; font-weight:bold;'>
-            New Course Enquiry
+            New Enquiry
           </td>
         </tr>
         <tr>
