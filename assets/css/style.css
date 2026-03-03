@@ -322,9 +322,9 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
-  bottom: 0;
+  /* bottom: 0; */
 }
 
 .drawer-footer .btn {
@@ -1036,7 +1036,7 @@ footer {
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9999;
+  z-index: 100;
 }
 
 .soacial-icon {
