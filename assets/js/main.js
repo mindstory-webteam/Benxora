@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const preloader = document.getElementById('preloader');
-      preloader.classList.add('hidden');
-    }, 2000);
-  });
+  // window.addEventListener('load', () => {
+  //   setTimeout(() => {
+  //     const preloader = document.getElementById('preloader');
+  //     preloader.classList.add('hidden');
+  //   }, 2000);
+  // });

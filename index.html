@@ -22,7 +22,7 @@
   </head>
   <body>
     <!-- ===== PRELOADER ===== -->
-<div id="preloader">
+    <!-- <div id="preloader">
   <div class="preloader-inner">
     <img src="assets/images/favicon(2).png" alt="Benxora" class="preloader-logo" />
     <div class="preloader-bar">
@@ -30,7 +30,7 @@
     </div>
     <p class="preloader-text">Education • Technology • Growth</p>
   </div>
-</div>
+</div> -->
     <!-- ===== HEADER ===== -->
     <header class="header">
       <div class="container-header">
@@ -545,7 +545,7 @@
             <span class="section-label">Preferred Institutions</span>
             <h2>Top Universities We Offer</h2>
             <p class="section-desc">
-             Explore the top universities we provide admission guidance for.
+              Explore the top universities we provide admission guidance for.
             </p>
           </div>
         </div>
@@ -871,9 +871,7 @@
               the way.
             </p>
           </div>
-          <a class="btn btn-white" href="#contact"
-            >Book Consultation →</a
-          >
+          <a class="btn btn-white" href="#contact">Book Consultation →</a>
         </div>
       </div>
     </div>
@@ -970,5 +968,168 @@
             class="soacial-icon-img" /></a
       ></span>
     </div>
+
+    <!-- ===== CONTACT POPUP MODAL ===== -->
+    <div id="contactModal" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-scroll">
+          <div class="modal-header">
+            <div>
+              <span
+                class="section-label"
+                style="display: block; margin-bottom: 4px"
+                >Get in Touch</span
+              >
+              <h2 style="font-size: 22px; margin-bottom: 0; line-height: 1.2">
+                Send an Enquiry
+              </h2>
+              <p style="color: var(--muted); font-size: 14px; margin-top: 4px">
+                We'll get back to you within 24 hours.
+              </p>
+            </div>
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close">
+              &#x2715;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="enquiryFormPopup" action="submit.php" method="POST">
+              <div class="form-grid">
+                <div class="form-row">
+                  <div>
+                    <label>Full Name</label>
+                    <input name="name" placeholder="Your full name" required />
+                  </div>
+                  <div>
+                    <label>Phone</label>
+                    <input
+                      name="phone"
+                      placeholder="+91 XXXXX XXXXX"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Course Interested In</label>
+                  <select name="course" required>
+                    <option value="">Select a course...</option>
+                    <option>Engineering</option>
+                    <option>Nursing</option>
+                    <option>Paramedical</option>
+                    <option>All PG Courses</option>
+                    <option>MBBS</option>
+                    <option>Management / MBA</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Message</label>
+                  <textarea
+                    name="message"
+                    placeholder="Tell us what you're looking for — course, city, budget..."
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  style="width: 100%; padding: 14px"
+                >
+                  Send Enquiry &#x2192;
+                </button>
+                <div
+                  id="popupFormAlert"
+                  style="
+                    margin-top: 12px;
+                    display: none;
+                    padding: 12px 14px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                  "
+                ></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openContactModal() {
+        document.getElementById("contactModal").classList.add("open");
+        document.body.classList.add("modal-open");
+      }
+      function closeContactModal() {
+        document.getElementById("contactModal").classList.remove("open");
+        document.body.classList.remove("modal-open");
+      }
+      document
+        .getElementById("modalCloseBtn")
+        .addEventListener("click", closeContactModal);
+      document
+        .getElementById("contactModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeContactModal();
+        });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeContactModal();
+      });
+      window.addEventListener("load", function () {
+        setTimeout(openContactModal, 800);
+      });
+
+      const popupForm = document.getElementById("enquiryFormPopup");
+      const popupAlert = document.getElementById("popupFormAlert");
+      function showPopupAlert(type, msg) {
+        popupAlert.style.display = "block";
+        popupAlert.textContent = msg;
+        if (type === "success") {
+          popupAlert.style.background = "#ecfdf5";
+          popupAlert.style.border = "1px solid #10b981";
+          popupAlert.style.color = "#065f46";
+        } else {
+          popupAlert.style.background = "#fef2f2";
+          popupAlert.style.border = "1px solid #ef4444";
+          popupAlert.style.color = "#991b1b";
+        }
+        popupAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      popupForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const btn = popupForm.querySelector('button[type="submit"]');
+        const oldText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+        popupAlert.style.display = "none";
+        try {
+          const formData = new FormData(popupForm);
+          const res = await fetch(popupForm.action, {
+            method: "POST",
+            body: formData,
+          });
+          const data = await res.json();
+          if (data.status === "success") {
+            showPopupAlert("success", data.message);
+            popupForm.reset();
+            setTimeout(() => closeContactModal(), 3000);
+          } else {
+            showPopupAlert("error", data.message || "Something went wrong.");
+          }
+        } catch (err) {
+          showPopupAlert("error", "Network error. Please try again.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldText;
+        }
+      });
+    </script>
   </body>
 </html>
