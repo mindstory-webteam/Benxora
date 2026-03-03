@@ -1461,6 +1461,7 @@ body.modal-open {
   transition: stroke-dashoffset .1s linear;
 }
 
+/* percent shows by default, arrow hidden */
 .scroll-percent {
   position: relative;
   z-index: 1;
@@ -1469,4 +1470,24 @@ body.modal-open {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .02em;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.arrow-icon {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+/* on hover — swap */
+#backToTop:hover .scroll-percent {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+#backToTop:hover .arrow-icon {
+  opacity: 1;
+  transform: translateY(0);
 }
