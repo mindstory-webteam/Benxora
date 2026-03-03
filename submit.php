@@ -34,7 +34,7 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "contact@benxora.in";
+$EmailTo = "janavalsan@mindstory.in";
 $subject = "New Contact Enquiry from Website";
 
 // CUSTOM HTML EMAIL TEMPLATE
