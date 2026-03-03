@@ -55,6 +55,7 @@ img {
   margin: 0 auto;
   padding: 0 24px;
 }
+
 .container-header {
   max-width: 1480px;
   margin: 0 auto;
@@ -597,6 +598,14 @@ h2 {
   height: 100%;
 }
 
+.college-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 .card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
@@ -709,7 +718,7 @@ h2 {
 /* ===== COLLEGES ===== */
 .colleges {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -717,7 +726,7 @@ h2 {
   background: #fff;
   border: 1px solid rgba(0, 120, 120, .14);
   border-radius: var(--radius);
-  padding: 20px 16px;
+  padding: 12px 12px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
