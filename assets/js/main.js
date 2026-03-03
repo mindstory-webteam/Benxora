@@ -1,19 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href^="#"]');
     if (!link) return;
-
     var targetId = link.getAttribute('href').slice(1); 
     if (!targetId) return;
-
     var target = document.getElementById(targetId);
     if (!target) return;
-
     e.preventDefault(); 
-
     closeDrawer();
-
     setTimeout(function () {
       var headerHeight = document.querySelector('.header')
         ? document.querySelector('.header').offsetHeight
@@ -23,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }, 10);
   });
-
 
   function openDrawer() {
     document.getElementById('drawer').classList.add('open');
@@ -57,6 +50,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ===== BACK TO TOP =====
+const backToTop = document.getElementById('backToTop');
+const progressFill = document.querySelector('.progress-ring-fill');
+const scrollPercent = document.querySelector('.scroll-percent');
+const circumference = 160;
+
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollTop / docHeight;
+    const offset = circumference - (progress * circumference);
+
+    progressFill.style.strokeDashoffset = offset;
+    scrollPercent.textContent = Math.round(progress * 100) + '%';
+
+    if (scrollTop > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+}
 
 });
 
