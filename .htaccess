@@ -26,8 +26,13 @@ RewriteRule ^(.*)$ /index.html [L]
   Header set Expires "0"
 </FilesMatch>
 
-# ===== CACHE static assets (CSS, JS, images) =====
-<FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+# ===== CACHE CSS & JS — 1 hour only, must revalidate =====
+<FilesMatch "\.(css|js)$">
+  Header set Cache-Control "public, max-age=3600, must-revalidate"
+</FilesMatch>
+
+# ===== CACHE images & fonts — 30 days (these rarely change) =====
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
   Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
 </FilesMatch>
 
