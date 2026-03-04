@@ -1410,7 +1410,7 @@ body.modal-open {
 
   .modal-box {
     border-radius: 20px 20px 0 0;
-    max-height: 95vh;
+    max-height: 70vh;
   }
 
   .modal-scroll {
