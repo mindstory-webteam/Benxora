@@ -39,6 +39,11 @@ body {
   overflow-x: hidden;
 }
 
+form input,
+.number-cs {
+  font-family: 'Nunito', sans-serif;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -1045,11 +1050,25 @@ footer {
   background-color: #fff;
   border-radius: 12px;
   padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  cursor: pointer;
+}
+
+.soacial-icon:hover {
+  transform: scale(1.18) translateX(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+  background-color: #f0f0f0;
 }
 
 .soacial-icon-img {
   height: auto;
   width: auto;
+  transition: transform .25s ease;
+}
+
+.soacial-icon:hover {
+  transform: scale(1.08);
 }
 
 .facebook-icon {
