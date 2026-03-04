@@ -77,7 +77,7 @@ img {
   padding: 0 24px;
 }
 
-/* ===== HEADER ===== */
+/*  HEADER  */
 .header {
   position: sticky;
   top: 0;
@@ -164,7 +164,7 @@ img {
   border-color: var(--navy);
 }
 
-/* ===== HAMBURGER BUTTON ===== */
+/*  HAMBURGER BUTTON  */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -209,7 +209,7 @@ img {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ===== DRAWER OVERLAY ===== */
+/*  DRAWER OVERLAY  */
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -227,7 +227,7 @@ img {
   pointer-events: all;
 }
 
-/* ===== DRAWER ===== */
+/*  DRAWER  */
 .drawer {
   position: fixed;
   top: 0;
@@ -354,7 +354,7 @@ body.drawer-open {
   overflow: hidden;
 }
 
-/* ===== HERO ===== */
+/*  HERO  */
 .hero {
   background:
     radial-gradient(ellipse 800px 500px at 5% 10%, rgba(0, 120, 120, .10), transparent 60%),
@@ -497,7 +497,7 @@ h1 em {
   margin-top: 1px;
 }
 
-/* ===== SECTIONS ===== */
+/*  SECTIONS  */
 section {
   padding: 72px 0;
 }
@@ -548,7 +548,7 @@ h2 {
   margin-top: 6px;
 }
 
-/* ===== KPI STRIP ===== */
+/*  KPI STRIP  */
 .kpi-strip {
   padding: 36px 0;
   border-bottom: 1px solid var(--border);
@@ -590,7 +590,7 @@ h2 {
   font-weight: 500;
 }
 
-/* ===== CARDS ===== */
+/*  CARDS  */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -648,7 +648,7 @@ h2 {
   line-height: 1.65;
 }
 
-/* ===== WHO WE ARE - SPLIT ===== */
+/*  WHO WE ARE - SPLIT  */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -671,7 +671,7 @@ h2 {
   color: #7a5812;
 }
 
-/* ===== JOURNEY ===== */
+/*  JOURNEY  */
 .journey {
   display: grid;
   gap: 14px;
@@ -724,7 +724,7 @@ h2 {
   font-size: 16px;
 }
 
-/* ===== COLLEGES ===== */
+/*  COLLEGES  */
 .colleges {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -794,7 +794,7 @@ h2 {
   gap: 8px;
 }
 
-/* ===== CONTACT ===== */
+/*  CONTACT  */
 .contact-wrap {
   display: grid;
   grid-template-columns: 1fr 0.8fr;
@@ -891,7 +891,7 @@ textarea {
   font-size: 16px;
 }
 
-/* ===== FINAL CTA ===== */
+/*  FINAL CTA  */
 .final {
   background: linear-gradient(135deg, #071E45 0%, #05152e 60%, #040f22 100%);
   color: #fff;
@@ -958,7 +958,7 @@ textarea {
   box-shadow: 0 12px 32px rgba(168, 121, 30, .50);
 }
 
-/* ===== FOOTER ===== */
+/*  FOOTER  */
 footer {
   background: #060f1e;
   color: rgba(255, 255, 255, .8);
@@ -1016,7 +1016,7 @@ footer {
   gap: 8px;
 }
 
-/* ===== BADGE ===== */
+/*  BADGE  */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -1030,7 +1030,7 @@ footer {
   border: 1px solid rgba(0, 120, 120, .20);
 }
 
-/* ===== SOCIAL Floating ===== */
+/*  SOCIAL Floating  */
 .social-float {
   display: flex;
   align-items: center;
@@ -1085,7 +1085,7 @@ footer {
   display: none;
 }
 
-/* ===== RESPONSIVE ===== */
+/*  RESPONSIVE  */
 @media (max-width: 1024px) {
   .colleges {
     grid-template-columns: repeat(3, 1fr);
@@ -1433,8 +1433,8 @@ body.modal-open {
 
   .modal-box {
     border-radius: 20px 20px 0 0;
-    max-height: 85svh; /* svh = safe viewport height, accounts for iPhone browser chrome */
-    max-height: 85dvh; /* dvh = dynamic viewport height fallback */
+    max-height: 85svh;
+    max-height: 85dvh;
   }
 
   .modal-scroll {
@@ -1450,7 +1450,8 @@ body.modal-open {
     padding: 16px 20px 24px;
   }
 }
-/* ===== BACK TO TOP ===== */
+
+/*  BACK TO TOP  */
 #backToTop {
   position: fixed;
   bottom: 28px;

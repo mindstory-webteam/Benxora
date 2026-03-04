@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ===== BACK TO TOP =====
+//  BACK TO TOP 
 const backToTop = document.getElementById('backToTop');
 const progressFill = document.querySelector('.progress-ring-fill');
 const scrollPercent = document.querySelector('.scroll-percent');

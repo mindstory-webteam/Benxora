@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <link rel="canonical" href="" />
 
-    <!-- ===== NO CACHE ===== -->
+    <!-- NO CACHE -->
     <meta
       http-equiv="Cache-Control"
       content="no-cache, no-store, must-revalidate"
@@ -30,7 +30,7 @@
     <script src="assets/js/main.js?v=1.1"></script>
   </head>
   <body>
-    <!-- ===== PRELOADER ===== -->
+    <!-- PRELOADER -->
     <!-- <div id="preloader">
   <div class="preloader-inner">
     <img src="assets/images/favicon(2).png" alt="Benxora" class="preloader-logo" />
@@ -40,7 +40,7 @@
     <p class="preloader-text">Education • Technology • Growth</p>
   </div>
 </div> -->
-    <!-- ===== HEADER ===== -->
+    <!-- HEADER -->
     <header class="header">
       <div class="container-header">
         <nav class="nav">
@@ -72,10 +72,10 @@
       </div>
     </header>
 
-    <!-- ===== DRAWER OVERLAY ===== -->
+    <!-- DRAWER OVERLAY -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
 
-    <!-- ===== DRAWER ===== -->
+    <!-- DRAWER -->
     <div
       class="drawer"
       id="drawer"
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <div class="hero" id="top">
       <div class="container">
         <div class="hero-inner">
@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <!-- ===== KPI STRIP ===== -->
+    <!-- KPI STRIP -->
     <div class="kpi-strip">
       <div class="container">
         <div class="kpis">
@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <!-- ===== WHO WE ARE ===== -->
+    <!-- WHO WE ARE -->
     <section id="who" class="soft-bg">
       <div class="container">
         <div class="section-head">
@@ -222,7 +222,7 @@
       </div>
     </section>
 
-    <!-- ===== OUR FOCUS ===== -->
+    <!-- OUR FOCUS -->
     <section id="focus">
       <div class="container">
         <div class="section-head">
@@ -268,7 +268,7 @@
       </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- SERVICES -->
     <section id="services" class="soft-bg">
       <div class="container">
         <div class="section-head">
@@ -376,7 +376,7 @@
       </div>
     </section>
 
-    <!-- ===== JOURNEY ===== -->
+    <!-- JOURNEY -->
     <section id="journey" class="blue-bg">
       <div class="container">
         <div
@@ -455,7 +455,7 @@
       </div>
     </section>
 
-    <!-- ===== COURSES ===== -->
+    <!-- COURSES -->
     <section id="courses" class="soft-bg">
       <div class="container">
         <div class="section-head">
@@ -482,15 +482,15 @@
           <div class="card">
             <div class="card-icon">
               <img
-                src="assets/images/stethoscope-svgrepo-com.svg"
+                src="assets/images/graduation-cap-solid-svgrepo-com.svg"
                 alt="Icon"
                 class="icon-img"
               />
             </div>
-            <h3>MBBS</h3>
+            <h3>Arts & Science</h3>
             <p>
-              Commerce pathways with institution shortlisting and guidance
-              support.
+              Arts & Science admissions guidance for BCA, BBA, B.Com, BA, and
+              BSc with counselling and support.
             </p>
           </div>
           <div class="card">
@@ -507,18 +507,19 @@
               documentation help.
             </p>
           </div>
+
           <div class="card">
             <div class="card-icon">
               <img
-                src="assets/images/bar-chart-1-svgrepo-com.svg"
+                src="assets/images/stethoscope-svgrepo-com.svg"
                 alt="Icon"
                 class="icon-img"
               />
             </div>
-            <h3>Management <b>/</b> MBA</h3>
+            <h3>MBBS</h3>
             <p>
-              Management programs with structured admissions guidance and
-              counselling.
+              Commerce pathways with institution shortlisting and guidance
+              support.
             </p>
           </div>
           <div class="card">
@@ -553,7 +554,7 @@
       </div>
     </section>
 
-    <!-- ===== COLLEGES ===== -->
+    <!-- COLLEGES -->
     <section id="colleges">
       <div class="container">
         <div class="section-head">
@@ -659,7 +660,7 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- CONTACT -->
     <section id="contact" class="soft-bg">
       <div class="container">
         <div class="section-head">
@@ -675,6 +676,8 @@
         <div class="contact-wrap">
           <div class="card">
             <h3>Send an Enquiry</h3>
+
+            <!-- MAIN CONTACT FORM -->
             <form
               id="enquiryForm"
               action="submit.php"
@@ -705,26 +708,41 @@
                     required
                   />
                 </div>
+
+                <!-- NESTED COURSE SELECTOR — MAIN -->
                 <div>
-                  <label>Course Interested In</label>
-                  <select name="course" required>
-                    <option value="">Select a course...</option>
-                    <option>MBBS</option>
-                    <option>Bachelor of Dental Surgery (BDS)</option>
-                    <option>BSc Nursing</option>
-                    <option>General Nursing and Midwifery (GNM)</option>
-                    <option>Paramedical</option>
-                    <option>Engineering</option>
-                    <option>Management / MBA</option>
-                    <option>All PG Courses</option>
-                    <option>Other</option>
+                  <label>Course Category</label>
+                  <select
+                    id="courseCategory_main"
+                    name="course_category"
+                    required
+                  >
+                    <option value="">Select a category...</option>
+                    <option value="engineering">
+                      Engineering (BE / BTech)
+                    </option>
+                    <option value="arts">Arts &amp; Science</option>
+                    <option value="nursing">BSc Nursing</option>
+                    <option value="paramedical">Paramedical</option>
+                    <option value="gnm">
+                      GNM – General Nursing &amp; Midwifery
+                    </option>
+                    <option value="mba">MBA &amp; PG Courses</option>
+                    <option value="other">Other Courses</option>
                   </select>
                 </div>
+                <div id="courseWrap_main" style="display: none">
+                  <label>Specific Course</label>
+                  <select id="courseSelect_main" name="course">
+                    <option value="">Select a course...</option>
+                  </select>
+                </div>
+
                 <div>
                   <label>Message</label>
                   <textarea
                     name="message"
-                    placeholder="Tell us what you're looking for  course, city, budget..."
+                    placeholder="Tell us what you're looking for — course, city, budget..."
                     required
                   ></textarea>
                 </div>
@@ -747,59 +765,6 @@
                 ></div>
               </div>
             </form>
-
-            <script>
-              const form = document.getElementById("enquiryForm");
-              const alertBox = document.getElementById("formAlert");
-
-              function showAlert(type, msg) {
-                alertBox.style.display = "block";
-                alertBox.textContent = msg;
-                if (type === "success") {
-                  alertBox.style.background = "#ecfdf5";
-                  alertBox.style.border = "1px solid #10b981";
-                  alertBox.style.color = "#065f46";
-                } else {
-                  alertBox.style.background = "#fef2f2";
-                  alertBox.style.border = "1px solid #ef4444";
-                  alertBox.style.color = "#991b1b";
-                }
-                alertBox.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-              }
-
-              form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                const btn = form.querySelector('button[type="submit"]');
-                const oldText = btn.textContent;
-                btn.disabled = true;
-                btn.textContent = "Sending...";
-                alertBox.style.display = "none";
-
-                try {
-                  const formData = new FormData(form);
-                  const res = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                  });
-                  const data = await res.json();
-                  if (data.status === "success") {
-                    showAlert("success", data.message);
-                    form.reset();
-                  } else {
-                    showAlert("error", data.message || "Something went wrong.");
-                  }
-                } catch (err) {
-                  showAlert("error", "Network error. Please try again.");
-                } finally {
-                  btn.disabled = false;
-                  btn.textContent = oldText;
-                }
-              });
-            </script>
           </div>
 
           <div class="contact-info">
@@ -878,7 +843,7 @@
       </div>
     </section>
 
-    <!-- ===== FINAL CTA ===== -->
+    <!-- FINAL CTA -->
     <div class="final">
       <div class="container">
         <div class="final-inner">
@@ -895,7 +860,7 @@
       </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-grid">
@@ -988,7 +953,7 @@
       ></span>
     </div>
 
-    <!-- ===== CONTACT POPUP MODAL ===== -->
+    <!-- CONTACT POPUP MODAL -->
     <div id="contactModal" class="modal-overlay">
       <div class="modal-box">
         <div class="modal-scroll">
@@ -1011,6 +976,7 @@
             </button>
           </div>
           <div class="modal-body">
+            <!-- POPUP FORM -->
             <form id="enquiryFormPopup" action="submit.php" method="POST">
               <div class="form-grid">
                 <div class="form-row">
@@ -1036,26 +1002,41 @@
                     required
                   />
                 </div>
+
+                <!-- NESTED COURSE SELECTOR — POPUP -->
                 <div>
-                  <label>Course Interested In</label>
-                  <select name="course" required>
-                    <option value="">Select a course...</option>
-                    <option>MBBS</option>
-                    <option>Bachelor of Dental Surgery (BDS)</option>
-                    <option>BSc Nursing</option>
-                    <option>General Nursing and Midwifery (GNM)</option>
-                    <option>Paramedical</option>
-                    <option>Engineering</option>
-                    <option>Management / MBA</option>
-                    <option>All PG Courses</option>
-                    <option>Other</option>
+                  <label>Course Category</label>
+                  <select
+                    id="courseCategory_popup"
+                    name="course_category"
+                    required
+                  >
+                    <option value="">Select a category...</option>
+                    <option value="engineering">
+                      Engineering (BE / BTech)
+                    </option>
+                    <option value="arts">Arts &amp; Science</option>
+                    <option value="nursing">BSc Nursing</option>
+                    <option value="paramedical">Paramedical</option>
+                    <option value="gnm">
+                      GNM – General Nursing &amp; Midwifery
+                    </option>
+                    <option value="mba">MBA &amp; PG Courses</option>
+                    <option value="other">Other Courses</option>
                   </select>
                 </div>
+                <div id="courseWrap_popup" style="display: none">
+                  <label>Specific Course</label>
+                  <select id="courseSelect_popup" name="course">
+                    <option value="">Select a course...</option>
+                  </select>
+                </div>
+
                 <div>
                   <label>Message</label>
                   <textarea
                     name="message"
-                    placeholder="Tell us what you're looking for  course, city, budget..."
+                    placeholder="Tell us what you're looking for — course, city, budget..."
                     required
                   ></textarea>
                 </div>
@@ -1082,7 +1063,60 @@
         </div>
       </div>
     </div>
+    <!-- form message -->
+    <script>
+      const form = document.getElementById("enquiryForm");
+      const alertBox = document.getElementById("formAlert");
 
+      function showAlert(type, msg) {
+        alertBox.style.display = "block";
+        alertBox.textContent = msg;
+        if (type === "success") {
+          alertBox.style.background = "#ecfdf5";
+          alertBox.style.border = "1px solid #10b981";
+          alertBox.style.color = "#065f46";
+        } else {
+          alertBox.style.background = "#fef2f2";
+          alertBox.style.border = "1px solid #ef4444";
+          alertBox.style.color = "#991b1b";
+        }
+        alertBox.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const btn = form.querySelector('button[type="submit"]');
+        const oldText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+        alertBox.style.display = "none";
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+          });
+          const data = await res.json();
+          if (data.status === "success") {
+            showAlert("success", data.message);
+            form.reset();
+          } else {
+            showAlert("error", data.message || "Something went wrong.");
+          }
+        } catch (err) {
+          showAlert("error", "Network error. Please try again.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldText;
+        }
+      });
+    </script>
+    <!-- form popup -->
     <script>
       function openContactModal() {
         document.getElementById("contactModal").classList.add("open");
@@ -1150,6 +1184,144 @@
           btn.disabled = false;
           btn.textContent = oldText;
         }
+      });
+    </script>
+    <!-- FORM course -->
+    <script>
+      const courseData = {
+        engineering: {
+          label: "Engineering (BE / BTech)",
+          courses: [
+            "Computer Science Engineering (CSE)",
+            "Artificial Intelligence & Machine Learning (AI & ML)",
+            "Information Science & Engineering (ISE)",
+            "Electronics & Communication Engineering (ECE)",
+            "Electrical & Electronics Engineering (EEE)",
+            "Mechanical Engineering",
+            "Civil Engineering",
+            "Robotics & Automation",
+            "Data Science Engineering",
+          ],
+        },
+        arts: {
+          label: "Arts & Science",
+          courses: [
+            "BCA – Bachelor of Computer Applications",
+            "BBA – Bachelor of Business Administration",
+            "B.Com – Bachelor of Commerce",
+            "BA – Bachelor of Arts",
+            "BSc – Bachelor of Science",
+            "BSW – Bachelor of Social Work",
+            "BHM – Bachelor of Hotel Management",
+            "BJMC – Bachelor of Journalism & Mass Communication",
+          ],
+        },
+        nursing: {
+          label: "BSc Nursing",
+          courses: ["BSc Nursing – Bachelor of Science in Nursing"],
+        },
+        paramedical: {
+          label: "Paramedical",
+          courses: [
+            { header: "── Degree Programs ──" },
+            "BPT – Bachelor of Physiotherapy",
+            "BMLT – Bachelor of Medical Laboratory Technology",
+            "BSc Radiology / Imaging Technology",
+            "BSc Operation Theatre Technology",
+            "BSc Anesthesia Technology",
+            "BSc Dialysis Technology",
+            "BSc Cardiac Care Technology",
+            "BSc Respiratory Care Technology",
+            "BSc Emergency & Trauma Care Technology",
+            "BSc Optometry",
+            "BSc Perfusion Technology",
+            "BSc Neuro Technology",
+            "BSc Blood Bank Technology",
+            { header: "── Diploma Programs ──" },
+            "DMLT – Diploma in Medical Laboratory Technology",
+            "Diploma in Operation Theatre Technology",
+            "Diploma in Anesthesia Technology",
+            "Diploma in Dialysis Technology",
+            "Diploma in X-Ray Technology",
+            "Diploma in ECG Technology",
+            "Diploma in Emergency Medical Technology",
+          ],
+        },
+        gnm: {
+          label: "GNM – General Nursing & Midwifery",
+          courses: ["GNM – General Nursing and Midwifery"],
+        },
+        mba: {
+          label: "MBA & PG Courses",
+          courses: [
+            { header: "── Management & Commerce ──" },
+            "MBA – Master of Business Administration",
+            "M.Com – Master of Commerce",
+            { header: "── Science & IT ──" },
+            "MSc – Master of Science",
+            "MCA – Master of Computer Applications",
+            { header: "── Arts & Social ──" },
+            "MA – Master of Arts",
+            "MSW – Master of Social Work",
+          ],
+        },
+        other: {
+          label: "Other Courses",
+          courses: ["Other / Not Listed"],
+        },
+      };
+
+      function buildCourseSelector(formId) {
+        const categorySelect = document.getElementById(
+          "courseCategory_" + formId,
+        );
+        const courseWrap = document.getElementById("courseWrap_" + formId);
+        const courseSelect = document.getElementById("courseSelect_" + formId);
+
+        categorySelect.addEventListener("change", function () {
+          const key = this.value;
+          courseSelect.innerHTML =
+            '<option value="">Select a course...</option>';
+
+          if (!key || !courseData[key]) {
+            courseWrap.style.display = "none";
+            courseSelect.removeAttribute("required");
+            return;
+          }
+
+          const list = courseData[key].courses;
+          list.forEach((item) => {
+            const opt = document.createElement("option");
+            if (typeof item === "object" && item.header) {
+              opt.value = "";
+              opt.textContent = item.header;
+              opt.disabled = true;
+              opt.style.color = "#999";
+              opt.style.fontWeight = "700";
+            } else {
+              opt.value = item;
+              opt.textContent = item;
+            }
+            courseSelect.appendChild(opt);
+          });
+
+          // Auto-select if only one real course (Nursing, GNM)
+          const real = list.filter((i) => typeof i === "string");
+          if (real.length === 1) {
+            courseSelect.value = real[0];
+            courseWrap.style.display = "none";
+            courseSelect.removeAttribute("required");
+          } else {
+            courseWrap.style.display = "block";
+            courseSelect.setAttribute("required", "");
+          }
+        });
+      }
+
+      // Init both forms after DOM ready
+      document.addEventListener("DOMContentLoaded", function () {
+        buildCourseSelector("popup");
+        buildCourseSelector("main");
       });
     </script>
 

@@ -12,21 +12,26 @@ function clean_input($data) {
   return htmlspecialchars(strip_tags(trim((string)$data)));
 }
 
-$errorMSG = "";
-
 // GET & VALIDATE DATA
-$name    = clean_input($_POST["name"] ?? '');
-$email   = clean_input($_POST["email"] ?? '');
-$phone   = clean_input($_POST["phone"] ?? '');
-$course  = clean_input($_POST["course"] ?? '');
-$message = clean_input($_POST["message"] ?? '');
+$name     = clean_input($_POST["name"]            ?? '');
+$email    = clean_input($_POST["email"]           ?? '');
+$phone    = clean_input($_POST["phone"]           ?? '');
+$category = clean_input($_POST["course_category"] ?? '');
+$course   = clean_input($_POST["course"]          ?? '');
+$message  = clean_input($_POST["message"]         ?? '');
 
-if ($name === "")  $errorMSG .= "Full Name is required. ";
-if ($email === "") $errorMSG .= "Email is required. ";
+// Use category as fallback if specific course not selected (e.g. Nursing, GNM)
+$courseDisplay = $course !== '' ? $course : $category;
+
+// VALIDATE
+$errorMSG = "";
+if ($name === "")          $errorMSG .= "Full Name is required. ";
+if ($email === "")         $errorMSG .= "Email is required. ";
 elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errorMSG .= "Enter valid email address. ";
-if ($phone === "") $errorMSG .= "Phone is required. ";
-if ($course === "") $errorMSG .= "Please select a course. ";
-if ($message === "") $errorMSG .= "Message is required. ";
+if ($phone === "")         $errorMSG .= "Phone is required. ";
+if ($category === "")      $errorMSG .= "Please select a course category. ";
+if ($courseDisplay === "") $errorMSG .= "Please select a course. ";
+if ($message === "")       $errorMSG .= "Message is required. ";
 
 if ($errorMSG !== "") {
   echo json_encode(["status" => "error", "message" => trim($errorMSG)]);
@@ -34,10 +39,10 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "contact@benxora.in";
-$subject = "New Contact Enquiry from Website";
+$EmailTo = "janavalsan@mindstory.in";
+$subject = "New Course Enquiry from Website";
 
-// CUSTOM HTML EMAIL TEMPLATE
+// HTML EMAIL TEMPLATE
 $Body = "
 <html><head><meta charset='UTF-8'></head>
 <body style='margin:0; padding:0; background:#f4f6f9; font-family:Arial, sans-serif;'>
@@ -46,20 +51,19 @@ $Body = "
       <table width='600' cellpadding='0' cellspacing='0' style='background:#ffffff; border-radius:10px; overflow:hidden;'>
         <tr>
           <td style='background:linear-gradient(90deg, #007272 0%, #005e7a 50%, #091e3a 100%); padding:20px; text-align:center; color:#ffffff; font-size:22px; font-weight:bold;'>
-            New Enquiry
+            New Course Enquiry
           </td>
         </tr>
         <tr>
           <td style='padding:30px; color:#333;'>
             <p style='font-size:16px; margin-bottom:20px;'>You have received a new enquiry from your website.</p>
-
-            <table width='100%' cellpadding='8' cellspacing='0' style='font-size:15px;'>
-              <tr><td style='font-weight:bold;'>Full Name:</td><td>$name</td></tr>
-              <tr><td style='font-weight:bold;'>Email:</td><td>$email</td></tr>
-              <tr><td style='font-weight:bold;'>Phone:</td><td>$phone</td></tr>
-              <tr><td style='font-weight:bold;'>Course:</td><td>$course</td></tr>
+            <table width='100%' cellpadding='8' cellspacing='0' style='font-size:15px; border-collapse:collapse;'>
+              <tr style='background:#f8f9fa;'><td style='font-weight:bold; width:160px; padding:10px 8px;'>Full Name</td><td style='padding:10px 8px;'>$name</td></tr>
+              <tr>                            <td style='font-weight:bold; padding:10px 8px;'>Email</td>      <td style='padding:10px 8px;'><a href='mailto:$email' style='color:#007878;'>$email</a></td></tr>
+              <tr style='background:#f8f9fa;'><td style='font-weight:bold; padding:10px 8px;'>Phone</td>     <td style='padding:10px 8px;'>$phone</td></tr>
+              <tr>                            <td style='font-weight:bold; padding:10px 8px;'>Category</td>  <td style='padding:10px 8px;'>$category</td></tr>
+              <tr style='background:#f8f9fa;'><td style='font-weight:bold; padding:10px 8px;'>Course</td>   <td style='padding:10px 8px;'>$courseDisplay</td></tr>
             </table>
-
             <div style='margin-top:25px; padding:15px; background:#f1f4f8; border-radius:6px;'>
               <strong>Message:</strong><br><br>$message
             </div>
@@ -77,7 +81,7 @@ $Body = "
 ";
 
 // HEADERS
-$headers  = "From: Website Enquiry <noreply@yourdomain.com>\r\n";
+$headers  = "From: Website Enquiry <noreply@benxora.in>\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
