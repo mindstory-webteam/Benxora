@@ -20,8 +20,18 @@ $category = clean_input($_POST["course_category"] ?? '');
 $course   = clean_input($_POST["course"]          ?? '');
 $message  = clean_input($_POST["message"]         ?? '');
 
-// Use category as fallback if specific course not selected (e.g. Nursing, GNM)
-$courseDisplay = $course !== '' ? $course : $category;
+// Human-readable category labels
+$categoryLabels = [
+  'engineering' => 'Engineering (BE / BTech)',
+  'arts'        => 'Arts & Science',
+  'nursing'     => 'BSc Nursing',
+  'paramedical' => 'Paramedical',
+  'gnm'         => 'GNM – General Nursing & Midwifery',
+  'mba'         => 'MBA & PG Courses',
+  'other'       => 'Other Courses',
+];
+$categoryDisplay = $categoryLabels[$category] ?? ucfirst($category);
+$courseDisplay = $course !== '' ? $course : $categoryDisplay;
 
 // VALIDATE
 $errorMSG = "";
@@ -39,7 +49,7 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "janavalsan@mindstory.in";
+$EmailTo = "contact@benxora.in";
 $subject = "New Course Enquiry from Website";
 
 // HTML EMAIL TEMPLATE
@@ -61,7 +71,7 @@ $Body = "
               <tr style='background:#f8f9fa;'><td style='font-weight:bold; width:160px; padding:10px 8px;'>Full Name</td><td style='padding:10px 8px;'>$name</td></tr>
               <tr>                            <td style='font-weight:bold; padding:10px 8px;'>Email</td>      <td style='padding:10px 8px;'><a href='mailto:$email' style='color:#007878;'>$email</a></td></tr>
               <tr style='background:#f8f9fa;'><td style='font-weight:bold; padding:10px 8px;'>Phone</td>     <td style='padding:10px 8px;'>$phone</td></tr>
-              <tr>                            <td style='font-weight:bold; padding:10px 8px;'>Category</td>  <td style='padding:10px 8px;'>$category</td></tr>
+              <tr>                            <td style='font-weight:bold; padding:10px 8px;'>Course Category</td>  <td style='padding:10px 8px;'>$categoryDisplay</td></tr>
               <tr style='background:#f8f9fa;'><td style='font-weight:bold; padding:10px 8px;'>Course</td>   <td style='padding:10px 8px;'>$courseDisplay</td></tr>
             </table>
             <div style='margin-top:25px; padding:15px; background:#f1f4f8; border-radius:6px;'>
