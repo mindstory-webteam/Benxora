@@ -49,7 +49,7 @@ if ($errorMSG !== "") {
 }
 
 // EMAIL SETTINGS
-$EmailTo = "contact@benxora.in";
+$EmailTo = "janavalsan@mindstory.in";
 $subject = "New Course Enquiry from Website";
 
 // HTML EMAIL TEMPLATE
