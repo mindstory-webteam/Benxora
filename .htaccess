@@ -1,23 +1,22 @@
 # ===== .htaccess =====
 
-# ===== FORCE HTTPS =====
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ===== REMOVE WWW (works for any domain) =====
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+# ===== FORCE HTTPS + NON-WWW + CANONICAL DOMAIN =====
+# This also handles Benxora.in / WWW.Benxora.in / mixed case hostnames
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^benxora\.in$ [NC]
+RewriteRule ^ https://benxora.in%{REQUEST_URI} [L,R=301]
 
 # ===== REMOVE TRAILING SLASH =====
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{THE_REQUEST} \s(.+?)/+\s
+RewriteCond %{REQUEST_URI} .+/$
 RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-# ===== SINGLE PAGE — serve index.html for all routes =====
+# ===== SINGLE PAGE APP — serve index.html for all routes =====
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.html [L]
+RewriteRule ^ /index.html [L]
 
 # ===== NO CACHE for HTML =====
 <FilesMatch "\.(html|htm|php)$">
@@ -26,14 +25,14 @@ RewriteRule ^(.*)$ /index.html [L]
   Header set Expires "0"
 </FilesMatch>
 
-# ===== CACHE CSS & JS — 1 hour only, must revalidate =====
+# ===== CACHE CSS & JS — 1 hour =====
 <FilesMatch "\.(css|js)$">
   Header set Cache-Control "public, max-age=3600, must-revalidate"
 </FilesMatch>
 
-# ===== CACHE images & fonts — 30 days (these rarely change) =====
+# ===== CACHE IMAGES & FONTS — 30 days =====
 <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
-  Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+  Header set Cache-Control "public, max-age=2592000"
 </FilesMatch>
 
 # ===== GZIP COMPRESSION =====
@@ -46,7 +45,6 @@ RewriteRule ^(.*)$ /index.html [L]
 # ===== SECURITY HEADERS =====
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set X-Content-Type-Options "nosniff"
-Header always set X-XSS-Protection "1; mode=block"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # ===== HIDE SERVER INFO =====
@@ -54,8 +52,7 @@ ServerSignature Off
 
 # ===== BLOCK ACCESS TO SENSITIVE FILES =====
 <FilesMatch "\.(env|log|sql|bak|config|htpasswd)$">
-  Order allow,deny
-  Deny from all
+  Require all denied
 </FilesMatch>
 
 # ===== CUSTOM ERROR PAGES =====
